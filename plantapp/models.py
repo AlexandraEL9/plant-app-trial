@@ -6,6 +6,7 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(20), unique=True, nullable=False)
     recipes = db.relationship("Recipe", backref="category", cascade="all, delete", lazy=True )
+    image_url = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return f'<Category {self.category_name}>'
